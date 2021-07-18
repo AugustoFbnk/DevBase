@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  mssql-server:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "AFerbonink#@123"
+    ports:
+      - "1433:1433"
+    volumes:
+      - C:\dados\volumes\sqlserver:/var/opt/mssql/data
+  devbase.api:
+    image: ${DOCKER_REGISTRY-}devbaseapi
+    build:
+      context: .
+      dockerfile: DevBase.Api/Dockerfile
+    environment:
+      DbServer: "mssql-server"
+      DbPort: "1433"
+      DbUser: "SA"
+      Password: "AFerbonink#@123"
+      Database: "DevBaseDb"
+    ports:
+      - "8080:443"

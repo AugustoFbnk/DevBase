@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="10.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DevBase.Domain\DevBase.Domain.csproj" />
+    <ProjectReference Include="..\DevBase.Infra.Data\DevBase.Infra.Data.csproj" />
+    <ProjectReference Include="..\DevBase.Services.Util\DevBase.Services.Util.csproj" />
+  </ItemGroup>
+
+</Project>
