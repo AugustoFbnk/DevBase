@@ -21,8 +21,7 @@ DevBase
 	 
 O projeto foi estruturado para ser inteligível, evolutivo, testável e escalável;
 A camada de API apenas expõe os endpoints da aplicação e realiza tratamento da entrada de dados;
-A camada de Domain possui a conexão com o mundo real, nela são definidas as entidades do sistema. Nesse modelo foi utilizado um domínio pobre, portanto essa camada não deve executar 
-  regras de negócio;
+A camada de Domain possui a conexão com o mundo real, nela são definidas as entidades do sistema. Nesse modelo foi utilizado um domínio pobre, portanto essa camada não deve executar regras de negócio;
 A camada de Services realiza a interação com a infra-estrutura e acesso a dados, coordena as tarefas e realiza chamadas as regras de negócio;
 Services Utils possui utilidades relacionadas a camada de serviços;
 Util possui utilidades gerais do sistema;
