@@ -7,7 +7,7 @@ O arquivo de banco de dados do MSSql está configurado para ser armazenado no di
 A api será executada na porta 8080, conforme configurado no Dockerfile. Em caso de conflito, altere a configuração no Dockerfile e no front;
 
 Estrutura do projeto:
-
+```
 DevBase
   |-- DevBase.Api
   |-- DevBase.Domain
@@ -15,9 +15,10 @@ DevBase
   |-- DevBase.Services
   |-- DevBase.Services.Util
   |-- Devbase.Util
-  |-- UnitTest
+  |-- UnitTest 
      |-- DevBase.Api.Test
-	 |-- DevBase.Services.Test
+	 |-- DevBase.Services.Test 
+```
 	 
 O projeto foi estruturado para ser inteligível, evolutivo, testável e escalável;
 A camada de API apenas expõe os endpoints da aplicação e realiza tratamento da entrada de dados;
