@@ -3,8 +3,9 @@ Instruções para teste:
 2. Alterar o projeto de inicialização para o docker-compose;
 3. Executar o projeto (F5);
 
-O arquivo de banco de dados do MSSql está configurado para ser armazenado no diretório: C:\dados\volumes\sqlserver. Caso necessário, alterar essa configuração no arquivo docker-compose.yml;
-A api será executada na porta 8080, conforme configurado no Dockerfile. Em caso de conflito, altere a configuração no Dockerfile e no front;
+ - O arquivo de banco de dados do MSSql está configurado para ser armazenado no diretório: C:\dados\volumes\sqlserver. Caso necessário, alterar essa configuração no arquivo docker-compose.yml;
+ - A api será executada na porta 8080, conforme configurado no Dockerfile. Em caso de conflito, altere a configuração no Dockerfile e no front;
+ - O front está configurado ser executado na porta 3000, se alterado, será necessário alterar liberar o cors no Startup.cs. (similar ao _fullAccessLocal3000);
 
 Estrutura do projeto:
 ```
