@@ -17,7 +17,7 @@ DevBase
   |-- Devbase.Util
   |-- UnitTest 
      |-- DevBase.Api.Test
-	 |-- DevBase.Services.Test 
+     |-- DevBase.Services.Test 
 ```
 	 
 O projeto foi estruturado para ser inteligível, evolutivo, testável e escalável;
