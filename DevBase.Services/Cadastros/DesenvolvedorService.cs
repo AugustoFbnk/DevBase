@@ -47,7 +47,7 @@ namespace DevBase.Services.Cadastros
             var quantidadeDeRegistros = filtro.QuantidadeDeRegistros.TryToInt();
             var numeroDaPagina = filtro.NumeroDaPagina.TryToInt();
 
-            var devs = _desenvolvedorRepositorio.GetByFiltro(filtro.Idade, filtro.Sexo, filtro.Hobby, filtro.Nome);
+            var devs = _desenvolvedorRepositorio.GetByFiltro(filtro.DataNascimento, filtro.Sexo, filtro.Hobby, filtro.Nome);
 
             var totalRegistros = devs.Count();
 

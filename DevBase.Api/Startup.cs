@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using System.Reflection;
 
 namespace DevBase.Api
@@ -57,6 +58,12 @@ namespace DevBase.Api
             ConfigureValidators(services);
 
             services.AddAutoMapper(Assembly.Load(Assembly.GetAssembly(typeof(DesenvolvedorProfileMap)).FullName));
+
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Base de Desenvolvedores API", Version = "v1" });
+            });
         }
 
         private void ConfigurarBusinessServices(IServiceCollection services)
@@ -75,8 +82,6 @@ namespace DevBase.Api
             services.AddScoped<IValidator<DesenvolvedorDto>, DesenvolvedorDtoValidator>();
         }
 
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -84,10 +89,16 @@ namespace DevBase.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseHttpsRedirection();
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.RoutePrefix = "swagger";
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Base de Desenvolvedores v1");
+            });
 
             app.UseRouting();
-            
+
             app.UseCors(FullAccessLocal3000);
 
             app.UseEndpoints(endpoints =>

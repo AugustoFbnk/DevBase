@@ -4,6 +4,7 @@ using DevBase.Infra.Data.Contextos;
 using DevBase.Infra.Data.Interfaces.Repositorios.Cadastros;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System;
 
 namespace DevBase.Infra.Data.Repositorios.Cadastros
 {
@@ -13,10 +14,10 @@ namespace DevBase.Infra.Data.Repositorios.Cadastros
         {
         }
 
-        public IQueryable<Desenvolvedor> GetByFiltro(int? idade, char? sexo, string hobby, string nome)
+        public IQueryable<Desenvolvedor> GetByFiltro(DateTime? dataNascimento, char? sexo, string hobby, string nome)
         {
             return GetDataContext().Set<Desenvolvedor>()
-                .Where(x => x.Idade == (idade ?? x.Idade)
+                .Where(x => x.DataNascimento == (dataNascimento ?? x.DataNascimento)
                          && x.Nome.Contains(!string.IsNullOrEmpty(nome) ? nome : x.Nome)
                          && x.Sexo == (sexo != null ? sexo.ToCharEnum<Sexo>() : x.Sexo)
                          && x.Hobby.Contains(!string.IsNullOrEmpty(hobby) ? hobby : x.Hobby)).AsNoTracking();

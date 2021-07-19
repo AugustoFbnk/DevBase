@@ -11,7 +11,7 @@ namespace DevBase.Services.DTO
         public string Nome { get; set; }
         public char? Sexo { get; set; }
         public string Hobby { get; set; }
-        public DateTime DataNascimento { get; set; }
+        public DateTime? DataNascimento { get; set; }
 
         public PaginationFilterDeveloperDto()
         {
@@ -52,6 +52,7 @@ namespace DevBase.Services.DTO
         {
             NumeroDaPagina = NumeroDaPagina < 1 ? 1 : NumeroDaPagina;
             QuantidadeDeRegistros = QuantidadeDeRegistros > 10 ? 10 : QuantidadeDeRegistros;
+            DataNascimento = DataNascimento == DateTime.MinValue ? null : DataNascimento;
         }
 
         private void LancarExcecaoCasoCamposInvalidos()

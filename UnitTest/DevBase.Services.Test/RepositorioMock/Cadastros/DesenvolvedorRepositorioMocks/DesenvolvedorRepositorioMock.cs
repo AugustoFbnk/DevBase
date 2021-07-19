@@ -4,6 +4,7 @@ using DevBase.Infra.Data.Interfaces.Repositorios.Cadastros;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 
 namespace DevBase.Services.Test.RepositorioMock.Cadastros.DesenvolvedorRepositorioMocks
 {
@@ -32,9 +33,9 @@ namespace DevBase.Services.Test.RepositorioMock.Cadastros.DesenvolvedorRepositor
             return _registros.AsQueryable();
         }
 
-        public IQueryable<Desenvolvedor> GetByFiltro(int? idade, char? sexo, string hobby, string nome)
+        public IQueryable<Desenvolvedor> GetByFiltro(DateTime? dataNascimento, char? sexo, string hobby, string nome)
         {
-            return _registros.Where(x => x.Idade == (idade ?? x.Idade)
+            return _registros.Where(x => x.DataNascimento == (dataNascimento ?? x.DataNascimento)
                          && x.Nome.Contains(!string.IsNullOrEmpty(nome) ? nome : x.Nome)
                          && x.Sexo == (sexo != null ? sexo.ToCharEnum<Sexo>() : x.Sexo)
                          && x.Hobby.Contains(!string.IsNullOrEmpty(hobby) ? hobby : x.Hobby)).AsQueryable();
